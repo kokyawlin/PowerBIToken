@@ -1,0 +1,26 @@
+# Example Power BI Configuration File
+# Copy this file to src/main/resources/application.properties and fill in your actual values
+
+# Server Configuration
+server.port=8080
+
+# Power BI Azure AD Configuration
+# Get these values from your Azure AD App Registration
+powerbi.tenant-id=YOUR_TENANT_ID_HERE
+powerbi.client-id=YOUR_CLIENT_ID_HERE
+powerbi.client-secret=YOUR_CLIENT_SECRET_HERE
+
+# Power BI API Configuration (usually don't need to change these)
+powerbi.authority-url=https://login.microsoftonline.com/
+powerbi.scope=https://analysis.windows.net/powerbi/api/.default
+
+# Logging Configuration
+logging.level.com.powerbi.token=INFO
+logging.level.org.springframework.web=INFO
+
+# Instructions:
+# 1. Copy this file to src/main/resources/application.properties
+# 2. Replace YOUR_TENANT_ID_HERE with your Azure AD Tenant ID
+# 3. Replace YOUR_CLIENT_ID_HERE with your Azure AD Application (Client) ID
+# 4. Replace YOUR_CLIENT_SECRET_HERE with your Azure AD Client Secret
+# 5. Save the file and start the application
