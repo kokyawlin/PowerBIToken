@@ -91,6 +91,10 @@ public class PowerBIService {
                 throw new IOException("Failed to generate embed token: " + response.code() + " - " + errorBody);
             }
 
+            if (response.body() == null) {
+                throw new IOException("Empty response body");
+            }
+
             String responseBody = response.body().string();
             JsonObject jsonResponse = gson.fromJson(responseBody, JsonObject.class);
 
@@ -126,6 +130,10 @@ public class PowerBIService {
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
                 throw new IOException("Failed to get report details: " + response.code());
+            }
+
+            if (response.body() == null) {
+                throw new IOException("Empty response body");
             }
 
             String responseBody = response.body().string();
@@ -165,6 +173,10 @@ public class PowerBIService {
             if (!response.isSuccessful()) {
                 String errorBody = response.body() != null ? response.body().string() : "No error details";
                 throw new IOException("Failed to generate dataset embed token: " + response.code() + " - " + errorBody);
+            }
+
+            if (response.body() == null) {
+                throw new IOException("Empty response body");
             }
 
             String responseBody = response.body().string();

@@ -11,6 +11,8 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/powerbi")
+// Note: @CrossOrigin(origins = "*") allows all origins for development/demo purposes.
+// For production, configure specific allowed origins or use Spring Security for proper CORS configuration.
 @CrossOrigin(origins = "*")
 public class PowerBIController {
 
